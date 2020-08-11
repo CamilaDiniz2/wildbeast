@@ -1,6 +1,153 @@
+body,
+p,
+h1,
+ul,
+li,
+blockquote {
+  padding: 0px;
+  margin: 0px;
+}
+
 body {
-  background-color: #b5aad6;
+  font-family: 'Vollkorn', serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 img {
+  max-width: 100%;
+  display: block;
+  border-radius: 0.3rem;
+}
+
+/* GRID GERAL */
+.estrutura {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    'header header header'
+    'sidenav content anuncios'
+    'footer footer footer';
+}
+
+/* HEADER */
+.header {
+  grid-area: header;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  padding: 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+.logo {
+  max-width: 200px;
+}
+
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header nav a {
+  display: block;
+  padding: 0.5rem;
+  color: #fdfdfd;
+  font-size: 1.125em;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 0.2rem;
+  transition: 300ms;
+}
+
+.header nav a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header li + li {
+  margin-left: 2rem;
+}
+
+/* SIDENAV */
+.sidenav {
+  grid-area: sidenav;
+  background: #fafbfc;
+  padding: 2rem;
+}
+
+.sidenav li a {
+  display: block;
+  min-width: 60px;
   max-width: 100px;
+  margin: 0 auto 2rem auto;
+  background-attachment: #fff;
+  padding: 1.25rem;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 1rem 0px rgba(44, 44, 44, 0.15);
+  transition: 500ms ease-out;
+}
+
+.sidenav li a:hover {
+  background-color: #b07dfb;
+}
+
+/* CONTENT */
+.content {
+  grid-area: content;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+.col-wide {
+  grid-column: 1/ -1;
+}
+
+.imagem-1 {
+  grid-row: span 2;
+  align-self: end;
+}
+
+.item-2 {
+  align-self: end;
+}
+
+/* ESTILO CONTENT */
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: -0.005rem;
+  color: tgba(0, 0, 0, 0.7);
+}
+
+/* ANUNCIOS */
+.anuncios {
+  grid-area: anuncios;
+  background: #fafbfc;
+
+  display: grid;
+  align-content: start;
+
+  padding: 2rem;
+  grid-gap: 2rem;
+}
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+}
+
+.footer p {
+  color: #fdfdfd;
+  text-align: center;
+  padding: 2rem;
 }
